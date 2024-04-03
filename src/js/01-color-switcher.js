@@ -7,6 +7,9 @@ const refs = {
 // console.log(refs.btnStart);
 // console.log(refs.btnStop);
 // console.log(refs.body);
+
+// refs.btnStop.setAttribute(`disabled`, true);
+
 let timerId = null;
 
 function ifClickOnBtn() {
@@ -18,6 +21,8 @@ function ifClickOnBtn() {
 
 
 const onBtnStartClick = () => {
+    refs.btnStop.removeAttribute(`disabled`, true);
+    refs.btnStart.setAttribute(`disabled`, true);
     timerId = setInterval(() => {
         refs.body.style.backgroundColor = getRandomHexColor();
         
@@ -31,6 +36,8 @@ function getRandomHexColor() {
   
 
 const onBtnStopClick = () => {
+    refs.btnStart.removeAttribute(`disabled`, true);
+    refs.btnStop.setAttribute(`disabled`, true);
     clearInterval(timerId);
     console.log("Stop")
     
